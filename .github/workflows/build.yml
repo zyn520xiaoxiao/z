@@ -73,7 +73,7 @@ jobs:
         mkdir -pv rknn
         cd rknn
         cp -vr ${SRC_PATH}/onnx_artifacts/*.onnx ./
-        python ../convert.pyc yolo.onnx rk3588 i8
+        python ../convert.pyc yolo.onnx rk3588 i8 yolo.rknn
 
 
     - name: Upload artifact

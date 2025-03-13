@@ -44,6 +44,7 @@ jobs:
         path: yolo/onnx/*.onnx
 
   onnx2rknn:
+    needs: [pt2onnx]
     strategy:
       matrix:
         runs-on: [ubuntu-22.04]
@@ -67,10 +68,11 @@ jobs:
 
     - name: Run build script
       run: |
+        SRC_PATH=$(pwd)
         cd yolo
         mkdir -pv rknn
         cd rknn
-        cp -vr onnx_artifacts/*.onnx ./
+        cp -vr ${SRC_PATH}/onnx_artifacts/*.onnx ./
         python ../convert.pyc yolo.onnx rk3588 i8
 
 

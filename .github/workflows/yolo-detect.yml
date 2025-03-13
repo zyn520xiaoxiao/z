@@ -71,9 +71,8 @@ jobs:
         SRC_PATH=$(pwd)
         cd yolo
         mkdir -pv rknn
-        cd rknn
-        cp -vr ${SRC_PATH}/onnx_artifacts/*.onnx ./
-        python ../convert.pyc yolo.onnx rk3588 i8 yolo.rknn
+        cp -vr ${SRC_PATH}/onnx_artifacts/*.onnx ./rknn/
+        python convert.pyc rknn/yolo.onnx rk3588 i8 rknn/yolo.rknn
 
 
     - name: Upload artifact

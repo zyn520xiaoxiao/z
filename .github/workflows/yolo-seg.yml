@@ -50,7 +50,7 @@ jobs:
         runs-on: [ubuntu-22.04]
     runs-on: ${{ matrix.runs-on }}
     container:
-      image: kaylor/rk3588_onnx2rknn:2.3.0
+      image: kaylor/rk3588_onnx2rknn:2.3.2
       options: --privileged
 
     steps:
